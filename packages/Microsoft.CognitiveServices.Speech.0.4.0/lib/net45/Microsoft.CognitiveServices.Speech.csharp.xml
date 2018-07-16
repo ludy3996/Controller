@@ -1,0 +1,1576 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.CognitiveServices.Speech.csharp</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.CognitiveServices.Speech.Internal.StdMapWStringWString.StdMapWStringWStringEnumerator">
+            Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
+            whenever the collection is modified. This has been done for changes in the size of the
+            collection but not when one of the elements of the collection is modified as it is a bit
+            tricky to detect unmanaged code that modifies the collection under our feet.
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Internal.UnsignedCharVector.UnsignedCharVectorEnumerator">
+            Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
+            whenever the collection is modified. This has been done for changes in the size of the
+            collection but not when one of the elements of the collection is modified as it is a bit
+            tricky to detect unmanaged code that modifies the collection under our feet.
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Internal.WstringVector.WstringVectorEnumerator">
+            Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
+            whenever the collection is modified. This has been done for changes in the size of the
+            collection but not when one of the elements of the collection is modified as it is a bit
+            tricky to detect unmanaged code that modifies the collection under our feet.
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat">
+            <summary>
+            The Audio stream format.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.FormatTag">
+            <summary>
+            The format of the audio, valid values: 1 (PCM)
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.Channels">
+            <summary>
+            The number of channels, valid values: 1 (Mono).
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.SamplesPerSec">
+            <summary>
+            The sample rate, valid values: 16000.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.AvgBytesPerSec">
+            <summary>
+            Average bytes per second, usually calculated as nSamplesPerSec * nChannels * ceil(wBitsPerSample, 8).
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.BlockAlign">
+            <summary>
+            The size of a single frame, valid values: nChannels * ceil(wBitsPerSample, 8).
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.AudioInputStreamFormat.BitsPerSample">
+            <summary>
+            The bits per sample, valid values: 16
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.AudioInputStream">
+            <summary>
+            Defines audio input stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.AudioInputStream.Forwarder">
+            <summary>
+            The adapter to the internal 
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.#ctor">
+            <summary>
+            Creates a new audio input stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.GetFormat">
+            <summary>
+            Gets the format of this audio stream.
+            </summary>
+            <returns>Returns the format of this audio stream.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.Read(System.Byte[])">
+            <summary>
+            Reads binary data from the stream.
+            </summary>
+            <param name="dataBuffer">The buffer to fill</param>
+            <returns>The number of bytes filled, or 0 in case the stream hits its end and there is no more data available.
+            If there is no data immediate available, Read() blocks untils the next data becomes available.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.Close">
+            <summary>
+            Closes the audio input stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.Dispose">
+            <summary>
+            Disposes the resources held by this instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.AudioInputStream.Dispose(System.Boolean)">
+            <summary>
+            Disposes the resources held by this instance.
+            </summary>
+            <param name="disposing">True if called by Dispose().</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader">
+            <summary>
+            Adapter class to the native stream api.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader.#ctor(Microsoft.CognitiveServices.Speech.AudioInputStreamFormat,System.IO.BinaryReader)">
+            <summary>
+            Creates and initializes an instance of BinaryAudioStreamReader.
+            </summary>
+            <param name="format">The format of the underlying stream</param>
+            <param name="reader">The underlying stream to read the audio data from. Note: The stream contains the bare sample data, not the container (like wave header data, etc).</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader.#ctor(Microsoft.CognitiveServices.Speech.AudioInputStreamFormat,System.IO.Stream)">
+            <summary>
+            Creates and initializes an instance of BinaryAudioStreamReader.
+            </summary>
+            <param name="format">The format of the underlying stream</param>
+            <param name="stream">The underlying stream to read the audio data from. Note: The stream contains the bare sample data, not the container (like wave header data, etc).</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader.GetFormat">
+            <summary>
+            Gets the format of the stream.
+            </summary>
+            <returns>Returns the format of the stream</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader.Read(System.Byte[])">
+            <summary>
+            Reads binary data from the stream.
+            </summary>
+            <param name="dataBuffer">The buffer to fill</param>
+            <returns>The number of bytes filled, or 0 in case the stream hits its end and there is no more data available.
+            If there is no data immediate available, Read() blocks untils the next data becomes available.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.BinaryAudioStreamReader.Dispose(System.Boolean)">
+            <summary>
+            Disposes the resorces held by this instance.
+            </summary>
+            <param name="disposing">If true, called through Dispose().</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.AudioInputStreamForwarder">
+            <summary>
+            Adapter class to the native audio stream interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResultCollection">
+            <summary>
+            Collection of best recognitions.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult">
+            <summary>
+            Detailed recognition result.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.Confidence">
+            <summary>
+            Confidence of recognition.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.Text">
+            <summary>
+            Recognized text.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.LexicalForm">
+            <summary>
+            Raw lexical form.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.NormalizedForm">
+            <summary>
+            Normalized form.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.DetailedSpeechRecognitionResult.MaskedNormalizedForm">
+            <summary>
+            Normalized form with masked profanity.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.IFactoryParameters">
+            <summary>
+            Interface to retrieve a parameter value from factory parameter collection of speech factory.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Is``1(Microsoft.CognitiveServices.Speech.FactoryParameterKind)">
+            <summary>
+            Checks whether the parameter has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <returns>true if the parameter has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Is``1(System.String)">
+            <summary>
+            Checks whether the parameter has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="parameterName">The name of parameter.</param>
+            <returns>true if the parameter has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Get``1(Microsoft.CognitiveServices.Speech.FactoryParameterKind)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Get``1(System.String)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterName">The name of parameter.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Get``1(Microsoft.CognitiveServices.Speech.FactoryParameterKind,``0)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the parameter.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Get``1(System.String,``0)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterName">The name of parameter.</param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the parameter.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(Microsoft.CognitiveServices.Speech.FactoryParameterKind,System.String)">
+            <summary>
+            Sets the string value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(System.String,System.String)">
+            <summary>
+            Sets the string value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The name of parameter</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(Microsoft.CognitiveServices.Speech.FactoryParameterKind,System.Int32)">
+            <summary>
+            Sets the integer value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(System.String,System.Int32)">
+            <summary>
+            Sets the integer value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The parameter name.</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(Microsoft.CognitiveServices.Speech.FactoryParameterKind,System.Boolean)">
+            <summary>
+            Sets the boolean value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IFactoryParameters.Set(System.String,System.Boolean)">
+            <summary>
+            Sets the boolean value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The parameter name.</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.FactoryParameterKind">
+            <summary>
+            Defines kind of factory parameters
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.FactoryParameterNames">
+            <summary>
+            Defines name of factory parameters. 
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.FactoryParameterNames.Region">
+            <summary>
+            The name of parameter for getting/setting region.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.FactoryParameterNames.SubscriptionKey">
+            <summary>
+            The name of parameter for getting/setting subscription key.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.FactoryParameterNames.AuthorizationToken">
+            <summary>
+            The name of parameter for getting/setting authorization token.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.FactoryParameterNames.Endpoint">
+            <summary>
+            The name of parameter for getting/setting endpoint.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel">
+            <summary>
+            Represents language understanding model used for intent recognition.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromEndpoint(System.String)">
+            <summary>
+            Creates an language understanding model using the specified endpoint.
+            </summary>
+            <param name="uri">A string that represents the endpoint of the language understanding model.</param>
+            <returns>The language understanding model being created.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromAppId(System.String)">
+            <summary>
+            Creates an language understanding model using the application id of Language Understanding service.
+            </summary>
+            <param name="appId">A string that represents the application id of Language Understanding service.</param>
+            <returns>The language understanding model being created.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel.FromSubscription(System.String,System.String,System.String)">
+            <summary>
+            Creates an language understanding model using hostname, subscription key and application id of Language Understanding service.
+            </summary>
+            <param name="subscriptionKey">A string that represents the subscription key of Language Understanding service.</param>
+            <param name="appId">A string that represents the application id of Language Understanding service.</param>
+            <param name="region">A string that represents the region of the Language Understanding service.</param>
+            <returns>The language understanding model being created.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult">
+            <summary>
+            Defines result of intent recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult.IntentId">
+            <summary>
+            A string that represents the intent identifier being recognized.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult.ToString">
+            <summary>
+            Returns a string that represents the intent recognition result.
+            </summary>
+            <returns>A string that represents the intent recognition result.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResultEventArgs">
+            <summary>
+            Define payload of intent intermediate/final result events.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResultEventArgs.Result">
+            <summary>
+            Represents the intent recognition result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResultEventArgs.SessionId">
+            <summary>
+            A String represents the session identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResultEventArgs.ToString">
+            <summary>
+            Returns a string that represents the session id and the intent recognition result event.
+            </summary>
+            <returns>A string that represents the intent recognition result event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer">
+            <summary>
+            Perform intent recognition on the speech input. It returns both recognized text and recognized intent.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.IntermediateResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.IntermediateResultReceived"/> signals that an intermediate recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.FinalResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.FinalResultReceived"/> signals that a final recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.RecognitionErrorRaised">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.RecognitionErrorRaised"/> signals that an error occurred during recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Language">
+            <summary>
+            Gets the language name that was set when the recognizer was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.Parameters">
+            <summary>
+            The collection of parameters and their values defined for this <see cref="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.RecognizeAsync">
+            <summary>
+            Starts intent recognition, and stops after the first utterance is recognized. The task returns the recognition text and intent as result.
+            </summary>
+            <returns>A task representing the recognition operation. The task returns a value of <see cref="T:Microsoft.CognitiveServices.Speech.Intent.IntentRecognitionResult"/></returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StartContinuousRecognitionAsync">
+            <summary>
+            Starts speech recognition on a continuous audio stream, until StopContinuousRecognitionAsync() is called.
+            User must subscribe to events to receive recognition results.
+            </summary>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StopContinuousRecognitionAsync">
+            <summary>
+            Stops continuous intent recognition.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)">
+            <summary>
+            Starts speech recognition on a continuous audio stream with keyword spotting, until StopKeywordRecognitionAsync() is called.
+            User must subscribe to events to receive recognition results.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <param name="model">The keyword recognition model that specifies the keyword to be recognized.</param>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.StopKeywordRecognitionAsync">
+            <summary>
+            Stops continuous speech recognition with keyword spotting.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(System.String,System.String)">
+            <summary>
+            Adds a phrase that should be recognized as intent.
+            </summary>
+            <param name="intentId">A string that represents the identifier of the intent to be recognized.</param>
+            <param name="phrase">A string that specifies the phrase representing the intent.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Intent.IntentRecognizer.AddIntent(System.String,Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModel,System.String)">
+            <summary>
+            Adds an intent from Language Understanding service for recognition.
+            </summary>
+            <param name="intentId">A string that represents the identifier of the intent to be recognized.</param>
+            <param name="model">The language understanding model from Language Understanding service.</param>
+            <param name="intentName">The intent name defined in the language understanding model. If it is null, all intent names defined in the model will be added.</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel">
+            <summary>
+            Represents keyword recognition model used w/ StartKeywordRecognitionAsync.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.FromFile(System.String)">
+            <summary>
+            Creates a keyword recognition model using the specified endpoint.
+            </summary>
+            <param name="fileName">A string that represents file name for the keyword recognition model.</param>
+            <returns>The keyword recognition model being created.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.KeywordRecognitionModel.Dispose">
+            <summary>
+            Dispose of associated resources.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.RecognitionErrorEventArgs">
+            <summary>
+            Defines payload of RecognitionErrorEvent. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionErrorEventArgs.Status">
+            <summary>
+            Specifies the error reason.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionErrorEventArgs.SessionId">
+            <summary>
+            Specifies the session identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionErrorEventArgs.FailureReason">
+            <summary>
+            Failure reason.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.RecognitionErrorEventArgs.ToString">
+            <summary>
+            Returns a string that represents the recognition error event.
+            </summary>
+            <returns>A string that represents the recognition error event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.RecognitionEventArgs">
+            <summary>
+            Defines payload for recognition events like Speech Start / End Detected
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.EventType">
+            <summary>
+            Represents the event type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.SessionId">
+            <summary>
+            Represents the session identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.Offset">
+            <summary>
+            Represents the message offset
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.RecognitionEventArgs.ToString">
+            <summary>
+            Returns a string that represents the session event.
+            </summary>
+            <returns>A string that represents the session event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.RecognitionEventType">
+            <summary>
+            Define recogntion event types.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Recognizer">
+            <summary>
+            Defines the base class Recognizer which mainly contains common event handlers.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Recognizer.OnSessionEvent">
+             <summary>
+             Defines event handler for session events, e.g., SessionStartedEvent and SessionStoppedEvent.
+             </summary>
+             <example>
+             Create a speech recognizer, setup an event handler for session events
+             <code>
+             static void MySessionEventHandler(object sender, RecognitionEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Speech recognition event: {0} ", e.ToString()));
+             }
+            
+             static async Task SpeechRecognizerSample()
+             {
+                 var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+                 SpeechRecognizer reco = factory.CreateSpeechRecognizerWithFileInput("audioFileName");
+            
+                 reco.OnSpeechDetectedEvent += MySessionEventHandler;
+            
+                 // Starts recognition.
+                 var result = await reco.RecognizeAsync();
+            
+                 reco.OnSpeechDetectedEvent -= MySessionEventHandler;
+                 Console.WriteLine("Speech Recognition: Recognition result: " + result);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Recognizer.OnSpeechDetectedEvent">
+            <summary>
+            Defines event handler for session events, e.g., SpeechStartDetectedEvent and SpeechEndDetectedEvent.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Recognizer.Dispose">
+            <summary>
+            Dispose of associated resources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Recognizer.Dispose(System.Boolean)">
+            <summary>
+            This method performs cleanup of resources.
+            The Boolean parameter <paramref name="disposing"/> indicates whether the method is called from <see cref="M:System.IDisposable.Dispose"/> (if <paramref name="disposing"/> is true) or from the finalizer (if <paramref name="disposing"/> is false).
+            Derived classes should override this method to dispose resource if needed.
+            </summary>
+            <param name="disposing">Flag to request disposal.</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Recognizer.SessionEventHandlerImpl">
+            <summary>
+            Define an internal class which raise a C# event when a corresponding callback is invoked from the native layer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Recognizer.RecognitionEventHandlerImpl">
+            <summary>
+            Define an internal class which raises a C# event when a corresponding callback is invoked from the native layer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.IRecognizerParameters">
+            <summary>
+            Interface to retrieve a parameter value from factory parameter collection of speech factory.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Is``1(Microsoft.CognitiveServices.Speech.RecognizerParameterKind)">
+            <summary>
+            Checks whether the parameter has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <returns>true if the parameter has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Is``1(System.String)">
+            <summary>
+            Checks whether the parameter has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="parameterName">The parameter name.</param>
+            <returns>true if the parameter has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Get``1(Microsoft.CognitiveServices.Speech.RecognizerParameterKind)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Get``1(System.String)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterName">The parameter name.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Get``1(Microsoft.CognitiveServices.Speech.RecognizerParameterKind,``0)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the parameter.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Get``1(System.String,``0)">
+            <summary>
+            Returns value of the parameter in type <typeparamref name="T"/>. 
+            The parameter must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the parameter value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of parameter. only string, int and bool are supported.</typeparam>
+            <param name="parameterName">The parameter name.</param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the parameter.</param>
+            <returns>value of the parameter.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(Microsoft.CognitiveServices.Speech.RecognizerParameterKind,System.String)">
+            <summary>
+            Sets the string value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(System.String,System.String)">
+            <summary>
+            Sets the string value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The name of parameter</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(Microsoft.CognitiveServices.Speech.RecognizerParameterKind,System.Int32)">
+            <summary>
+            Sets the integer value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(System.String,System.Int32)">
+            <summary>
+            Sets the integer value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The parameter name.</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(Microsoft.CognitiveServices.Speech.RecognizerParameterKind,System.Boolean)">
+            <summary>
+            Sets the boolean value of the parameter specified by name.
+            </summary>
+            <param name="parameterKind">The kind of parameter. see <see cref="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind"/></param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IRecognizerParameters.Set(System.String,System.Boolean)">
+            <summary>
+            Sets the boolean value of the parameter specified by name.
+            </summary>
+            <param name="parameterName">The parameter name.</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.RecognizerParameterKind">
+            <summary>
+            Defines kind of recognizer parameters.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechParameterNames">
+            <summary>
+            Defines name of speech recognizer parameters.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.SpeechParameterNames.DeploymentId">
+            <summary>
+            The name of parameter for getting/setting deployment id of a customized model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.SpeechParameterNames.RecognitionLanguage">
+            <summary>
+            The name of parameter for getting/setting language of recognition.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.SpeechParameterNames.OutputFormat">
+            <summary>
+            The name of parameter for getting/setting language of recognition.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.TranslationParameterNames">
+            <summary>
+            Defines name of translation parameters.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.TranslationParameterNames.SourceLanguage">
+            <summary>
+            The name of parameter for getting/setting source language of translation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.TranslationParameterNames.TargetLanguages">
+            <summary>
+            The name of parameter for getting/setting target languages of translation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.TranslationParameterNames.Voice">
+            <summary>
+            The name of parameter for getting/setting voice name to generate synthesized audio output of the translated text.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.TranslationParameterNames.Features">
+            <summary>
+            The name of parameter for getting/setting features of translation recognizer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.IResultProperties">
+            <summary>
+            Interface to retrieve a property value from property collection of recognition result.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Is``1(Microsoft.CognitiveServices.Speech.ResultPropertyKind)">
+            <summary>
+            Checks whether the property has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="propertyKind">The kind of property. see <see cref="T:Microsoft.CognitiveServices.Speech.ResultPropertyKind"/></param>
+            <returns>true if the property has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Is``1(System.String)">
+            <summary>
+            Checks whether the property has a <typeparamref name="T"/> value.
+            </summary>
+            <param name="propertyName">The name of property.</param>
+            <returns>true if the property has a <typeparamref name="T"/> value, and false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Get``1(Microsoft.CognitiveServices.Speech.ResultPropertyKind)">
+            <summary>
+            Returns value of the property in type <typeparamref name="T"/>. 
+            The property must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the property value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of property. only string, int and bool are supported.</typeparam>
+            <param name="propertyKind">The kind of property. see <see cref="T:Microsoft.CognitiveServices.Speech.ResultPropertyKind"/></param>
+            <returns>value of the property.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Get``1(System.String)">
+            <summary>
+            Returns value of the property in type <typeparamref name="T"/>. 
+            The property must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the property value is not defined, a default value is returned: an empty string if <typeparamref name="T"/> is string,
+            0 if <typeparamref name="T"/> is int, and false if <typeparamref name="T"/> is bool.
+            </summary>
+            <typeparam name="T">The type of property. only string, int and bool are supported.</typeparam>
+            <param name="propertyName">The name of property.</param>
+            <returns>value of the property.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Get``1(Microsoft.CognitiveServices.Speech.ResultPropertyKind,``0)">
+            <summary>
+            Returns value of the property in type <typeparamref name="T"/>. 
+            The property must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the property value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of property. only string, int and bool are supported.</typeparam>
+            <param name="propertyKind">The kind of property. see <see cref="T:Microsoft.CognitiveServices.Speech.ResultPropertyKind"/></param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the property.</param>
+            <returns>value of the property.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.IResultProperties.Get``1(System.String,``0)">
+            <summary>
+            Returns value of the property in type <typeparamref name="T"/>.
+            The property must have the same type as <typeparamref name="T"/>.
+            Currently only string, int and bool are allowed.
+            If the property value is not defined, the specified defaultValue is returned.
+            </summary>
+            <typeparam name="T">The type of property. only string, int and bool are supported.</typeparam>
+            <param name="propertyName">The name of property.</param>
+            <param name="defaultValue">The default value which is returned if no value is defined for the property.</param>
+            <returns>value of the property.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.ResultPropertyKind">
+            <summary>
+            Defines kind of result properties.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.ResultPropertyNames">
+            <summary>
+            Defines name of result property names.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.ResultPropertyNames.Json">
+            <summary>
+            The name of property Json.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.ResultPropertyNames.LanguageUnderstandingJson">
+            <summary>
+            The name of property LanguageUnderstandingJson.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.ResultPropertyNames.ErrorDetails">
+            <summary>
+            The name of property ErrorDetails.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SessionEventArgs">
+            <summary>
+            Defines payload for session events like SessionStarted/Stopped, SoundStarted/Stopped.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SessionEventArgs.EventType">
+            <summary>
+            Represents the event type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SessionEventArgs.SessionId">
+            <summary>
+            Represents the session identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SessionEventArgs.ToString">
+            <summary>
+            Returns a string that represents the session event.
+            </summary>
+            <returns>A string that represents the session event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SessionEventType">
+            <summary>
+            Define session event types.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechFactory">
+            <summary>
+            Factory methods to create recognizers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.FromSubscription(System.String,System.String)">
+            <summary>
+            Creates an instance of the speech factory with specified subscription key and region.
+            </summary>
+            <param name="subscriptionKey">The subscription key.</param>
+            <param name="region">The region name.</param>
+            <returns>A speech factory instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.FromEndPoint(System.Uri,System.String)">
+            <summary>
+            Creates an instance of the speech factory with specified endpoint and subscription key.
+            This method is intended only for users who use a non-standard service endpoint.
+            Note: The query parameters specified in the endpoint URL are not changed, even if they are set by any other APIs.
+            For example, if language is defined in uri as query parameter "language=de-DE", and also set by CreateSpeechRecognizer("en-US"),
+            the language setting in uri takes precedence, and the effective language is "de-DE".
+            Only the parameters that are not specified in the endpoint URL can be set by other APIs.
+            </summary>
+            <param name="endpoint">The service endpoint to connect to.</param>
+            <param name="subscriptionKey">The subscription key.</param>
+            <returns>A speech factory instance.</returns>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechFactory.SubscriptionKey">
+            <summary>
+            Gets/sets the subscription key.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechFactory.AuthorizationToken">
+            <summary>
+            Gets/sets the authorization token.
+            If this is set, subscription key is ignored.
+            User needs to make sure the provided authorization token is valid and not expired.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechFactory.Region">
+            <summary>
+            Gets/sets the region name of the service to be connected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechFactory.EndpointURL">
+            <summary>
+            Gets/Sets the service endpoint when connecting to the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechFactory.Parameters">
+            <summary>
+            The collection of parameters and their values defined for this <see cref="T:Microsoft.CognitiveServices.Speech.SpeechFactory"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizer">
+            <summary>
+            Creates a speech recognizer, using the default microphone input.
+            </summary>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizer(System.String)">
+            <summary>
+            Creates a speech recognizer using the default microphone input.
+            </summary>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizer(System.String,Microsoft.CognitiveServices.Speech.SpeechOutputFormat)">
+            <summary>
+            Creates a speech recognizer using the default microphone input.
+            </summary>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <param name="format">Output format: simple or detailed.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithFileInput(System.String)">
+            <summary>
+            Creates a speech recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithFileInput(System.String,System.String)">
+            <summary>
+            Creates a speech recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream)">
+            <summary>
+            Creates a speech recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream,System.String)">
+            <summary>
+            Creates a speech recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithFileInput(System.String,System.String,Microsoft.CognitiveServices.Speech.SpeechOutputFormat)">
+            <summary>
+            Creates a speech recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <param name="format">Output format: simple or detailed.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateSpeechRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream,System.String,Microsoft.CognitiveServices.Speech.SpeechOutputFormat)">
+            <summary>
+            Creates a speech recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <param name="format">Output format: simple or detailed.</param>
+            <returns>A speech recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateIntentRecognizer">
+            <summary>
+            Creates an intent recognizer using the default microphone input.
+            </summary>
+            <returns>An intent recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateIntentRecognizerWithFileInput(System.String)">
+            <summary>
+            Creates an intent recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <returns>An intent recognizer instance</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateIntentRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream)">
+            <summary>
+            Creates an intent recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <returns>An intent recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateIntentRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream,System.String)">
+            <summary>
+            Creates an intent recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <param name="language">Specifies the name of spoken language to be recognized in BCP-47 format.</param>
+            <returns>An intent recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizer(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a translation recognizer using the default microphone input.
+            </summary>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizer(System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Creates a translation recognizer using the default microphone input.
+            </summary>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <param name="voice">Specifies the name of voice tag if a synthesized audio output is desired.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizerWithFileInput(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a translation recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizerWithFileInput(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Creates a translation recognizer using the specified file as audio input.
+            </summary>
+            <param name="audioFile">Specifies the audio input file. Currently, only WAV / PCM with 16-bit samples, 16 KHz sample rate, and a single channel (Mono) is supported.</param>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <param name="voice">Specifies the name of voice tag if a synthesized audio output is desired.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a translation recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.CreateTranslationRecognizerWithStream(Microsoft.CognitiveServices.Speech.AudioInputStream,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Creates a translation recognizer using the specified input stream as audio input.
+            </summary>
+            <param name="audioStream">Specifies the audio input stream.</param>
+            <param name="sourceLanguage">The spoken language that needs to be translated.</param>
+            <param name="targetLanguages">The target languages of translation.</param>
+            <param name="voice">Specifies the name of voice tag if a synthesized audio output is desired.</param>
+            <returns>A translation recognizer instance.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.#ctor(System.String,System.String)">
+            <summary>
+            Creates an instance of the speech factory with specified subscription key and region. Currently as private method.
+            </summary>
+            <param name="subscriptionKey">The subscription key.</param>
+            <param name="region">The region name.</param>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechFactory.#ctor(System.Uri,System.String)">
+            <summary>
+            Creates an instance of the speech factory with specified endpoint and subscription key. Currently as private method.
+            </summary>
+            <param name="endpoint">The service endpoint to connect to.</param>
+            <param name="subscriptionKey">The subscription key.</param>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechOutputFormat">
+            <summary>
+            Output format.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult">
+            <summary>
+            Defines result of speech recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.ResultId">
+            <summary>
+            Specifies the result identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.RecognitionStatus">
+            <summary>
+            Specifies status of speech recognition result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.Text">
+            <summary>
+            Presents the recognized text in the result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.RecognitionFailureReason">
+            <summary>
+            In case of an unsuccessful recognition, provides a brief description of an occurred error.
+            This field is only filled-out if the recognition status (<see cref="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.RecognitionStatus"/>) is set to Canceled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.Properties">
+            <summary>
+            Contains properties of the results.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult.ToString">
+            <summary>
+            Returns a string that represents the speech recognition result.
+            </summary>
+            <returns>A string that represents the speech recognition result.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultEventArgs">
+            <summary>
+            Define payload of speech intermediate/final result events.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultEventArgs.Result">
+            <summary>
+            Specifies the recognition result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultEventArgs.SessionId">
+            <summary>
+            Specifies the session identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultEventArgs.ToString">
+            <summary>
+            Returns a string that represents the speech recognition result event.
+            </summary>
+            <returns>A string that represents the speech recognition result event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultExtensions">
+            <summary>
+            Extension methods for speech recognition result
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognitionResultExtensions.Best(Microsoft.CognitiveServices.Speech.SpeechRecognitionResult)">
+            <summary>
+            Returns best possible recognitions for the result if the recognizer
+            was created with detailed output format.
+            </summary>
+            <param name="result">Recognition result.</param>
+            <returns>A collection of best recognitions.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.RecognitionStatus">
+            <summary>
+            Defines speech recognition status.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.SpeechRecognizer">
+             <summary>
+             Performs speech recognition from microphone, file, or other audio input streams, and gets transcribed text as result.
+             </summary>
+             <example>
+             An example to use the speech recognizer on a audio file and listen to events generated by the recognizer.
+             <code>
+             static void MySessionEventHandler(object sender, SessionEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Speech recognition: Session event: {0} ", e.ToString()));
+             }
+            
+             static void MyIntermediateResultEventHandler(object sender, SpeechRecognitionResultEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Speech recognition: Intermediate result: { 0} ", e.ToString()));
+                  }
+            
+             static void MyFinalResultEventHandler(object sender, SpeechRecognitionResultEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Speech recognition: Final result: {0} ", e.ToString()));
+             }
+            
+             static void MyErrorHandler(object sender, RecognitionErrorEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Speech recognition: Error information: {0} ", e.ToString()));
+             }
+            
+             static async Task SpeechRecognizerSample()
+             {
+                 var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+                 SpeechRecognizer reco = factory.CreateSpeechRecognizerWithFileInput("audioFileName");
+            
+                 reco.OnSessionEvent += MySessionEventHandler;
+                 reco.FinalResultReceived += MyFinalResultEventHandler;
+                 reco.IntermediateResultReceived += MyIntermediateResultEventHandler;
+                 reco.RecognitionErrorRaised += MyErrorHandler;
+            
+                 // Starts recognition.
+                 var result = await reco.RecognizeAsync();
+            
+                 reco.OnSessionEvent -= MySessionEventHandler;
+                 reco.FinalResultReceived -= MyFinalResultEventHandler;
+                 reco.IntermediateResultReceived -= MyIntermediateResultEventHandler;
+                 reco.RecognitionErrorRaised -= MyErrorHandler;
+            
+                 Console.WriteLine("Speech Recognition: Recognition result: " + result);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.IntermediateResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.IntermediateResultReceived"/> signals that an intermediate recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.FinalResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.FinalResultReceived"/> signals that a final recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.RecognitionErrorRaised">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.SpeechRecognizer.RecognitionErrorRaised"/> signals that an error occurred during recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.DeploymentId">
+            <summary>
+            Gets/gets the deployment id of a customized speech model that is used for speech recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Language">
+            <summary>
+            Gets the language name that was set when the recognizer was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.SpeechRecognizer.Parameters">
+            <summary>
+            The collection of parameters and their values defined for this <see cref="T:Microsoft.CognitiveServices.Speech.SpeechRecognizer"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.RecognizeAsync">
+             <summary>
+             Starts speech recognition, and stops after the first utterance is recognized. The task returns the recognition text as result.
+             </summary>
+             <returns>A task representing the recognition operation. The task returns a value of <see cref="T:Microsoft.CognitiveServices.Speech.SpeechRecognitionResult"/> </returns>
+             <example>
+             The following example creates a speech recognizer, and then gets and prints the recognition result.
+             <code>
+             static async Task SpeechRecognizerSample()
+             {
+                 var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+                 SpeechRecognizer reco = factory.CreateSpeechRecognizerWithFileInput("audioFileName");
+            
+                 // Starts recognition.
+                 var result = await reco.RecognizeAsync();
+            
+                 Console.WriteLine("Speech Recognition: Recognition result: " + result);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StartContinuousRecognitionAsync">
+            <summary>
+            Starts speech recognition on a continuous audio stream, until StopContinuousRecognitionAsync() is called.
+            User must subscribe to events to receive recognition results.
+            </summary>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StopContinuousRecognitionAsync">
+            <summary>
+            Stops continuous speech recognition.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)">
+            <summary>
+            Starts speech recognition on a continuous audio stream with keyword spotting, until StopKeywordRecognitionAsync() is called.
+            User must subscribe to events to receive recognition results.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <param name="model">The keyword recognition model that specifies the keyword to be recognized.</param>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.SpeechRecognizer.StopKeywordRecognitionAsync">
+            <summary>
+            Stops continuous speech recognition with keyword spotting.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the recognition.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.SynthesisStatus">
+            <summary>
+            Defines status of translation synthesis message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.Translation.SynthesisStatus.Success">
+            <summary>
+            The response contains valid audio data.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.Translation.SynthesisStatus.SynthesisEnd">
+            <summary>
+            Indicates the end of audio data. No valid audio data is included in the message.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CognitiveServices.Speech.Translation.SynthesisStatus.Error">
+            <summary>
+            Indicates an error occurred during synthesis data processing.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer">
+             <summary>
+             Performs translation on the speech input.
+             </summary>
+             <example>
+             An example to use the translation recognizer on an audio file and listen to events generated by the recognizer.
+             <code>
+             static void MySessionEventHandler(object sender, SessionEventArgs e)
+             {
+                 Console.WriteLine(String.Format("Translation recognition: Session event: {0} ", e.ToString()));
+             }
+            
+             static void MyIntermediateResultEventHandler(object sender, TranslationTextResultEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Translation recognition: Intermediate result: {0} ", e.ToString()));
+             }
+            
+             static void MyFinalResultEventHandler(object sender, TranslationTextResultEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Translation recognition: Final result: {0} ", e.ToString()));
+             }
+            
+             static void MyErrorHandler(object sender, RecognitionErrorEventArgs e)
+             {
+                 Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "Translation recognition: Error information: {0} ", e.ToString()));
+             }
+            
+             static async Task TranslationRecognizerSample()
+             {
+                 var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+                 string fromLanguage = "en-US";
+                 var toLanguages = new List&lt;string&gt;() { "de-DE" };
+                 TranslationRecognizer reco = factory.CreateTranslationRecognizerWithFileInput("audioFileName", fromLanguage, toLanguages);
+            
+                 reco.OnSessionEvent += MySessionEventHandler;
+                 reco.FinalResultReceived += MyFinalResultEventHandler;
+                 reco.IntermediateResultReceived += MyIntermediateResultEventHandler;
+                 reco.RecognitionErrorRaised += MyErrorHandler;
+            
+                 // Starts recognition.
+                 var result = await reco.RecognizeAsync();
+            
+                 reco.OnSessionEvent -= MySessionEventHandler;
+                 reco.FinalResultReceived -= MyFinalResultEventHandler;
+                 reco.IntermediateResultReceived -= MyIntermediateResultEventHandler;
+                 reco.RecognitionErrorRaised -= MyErrorHandler;
+            
+                 Console.WriteLine("Translation Recognition: Recognition result: " + result);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.IntermediateResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.IntermediateResultReceived"/> signals that an intermediate recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.FinalResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.FinalResultReceived"/> signals that a final recognition result is received.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.RecognitionErrorRaised">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.RecognitionErrorRaised"/> signals that an error occurred during recognition.
+            </summary>
+        </member>
+        <member name="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.SynthesisResultReceived">
+            <summary>
+            The event <see cref="E:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.SynthesisResultReceived"/> signals that a translation synthesis result is received.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.SourceLanguage">
+            <summary>
+            Gets the language name that was set when the recognizer was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.TargetLanguages">
+            <summary>
+            Gets target languages for translation that were set when the recognizer was created.
+            The language is specified in BCP-47 format. The translation will provide translated text for each of language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.IsVoiceOutputDesired">
+            <summary>
+            Gets/sets a boolean value which indicates whether a voice output of the translated text is desired.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.Parameters">
+            <summary>
+            The collection of parameters and their values defined for this <see cref="T:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.RecognizeAsync">
+             <summary>
+             Starts recognition and translation, and stops after the first utterance is recognized. The task returns the translation text as result.
+             </summary>
+             <returns>A task representing the recognition operation. The task returns a value of <see cref="T:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult"/> </returns>
+             <example>
+             Create a translation recognizer, get and print the recognition result
+             <code>
+             static async Task TranslationRecognizerSample()
+             {
+                 var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+                 string fromLanguage = "en-US";
+                 var toLanguages = new List&lt;string&gt;() { "de-DE" };
+                 Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer reco = factory.CreateTranslationRecognizerWithFileInput("audioFileName", fromLanguage, toLanguages);
+            
+                 // Starts recognition.
+                 var result = await reco.RecognizeAsync();
+            
+                 Console.WriteLine("Translation Recognition: Recognition result: " + result);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StartContinuousRecognitionAsync">
+            <summary>
+            Starts recognition and translation on a continous audio stream, until StopContinuousRecognitionAsync() is called.
+            User must subscribe to events to receive translation results.
+            </summary>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StopContinuousRecognitionAsync">
+            <summary>
+            Stops continuous recognition and translation.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the translation.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StartKeywordRecognitionAsync(Microsoft.CognitiveServices.Speech.KeywordRecognitionModel)">
+            <summary>
+            Starts speech recognition on a continuous audio stream with keyword spotting, until StopKeywordRecognitionAsync() is called.
+            User must subscribe to events to receive recognition results.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <param name="model">The keyword recognition model that specifies the keyword to be recognized.</param>
+            <returns>A task representing the asynchronous operation that starts the recognition.</returns>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationRecognizer.StopKeywordRecognitionAsync">
+            <summary>
+            Stops continuous speech recognition with keyword spotting.
+            Note: Key word spotting functionality is only available on the Cognitive Services Device SDK. This functionality is currently not included in the SDK itself.
+            </summary>
+            <returns>A task representing the asynchronous operation that stops the recognition.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationStatus">
+            <summary>
+            Defines status of translation text result.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult">
+            <summary>
+            Defines translation synthesis result, i.e. the voice output of the translated text in the target language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.Status">
+            <summary>
+            Specifies status of translation synthesis.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.Audio">
+            <summary>
+            translated text in the target language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.FailureReason">
+            <summary>
+            Contains failure reason if TextStatus is Error. Otherwise it is empty.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResult.ToString">
+            <summary>
+            Returns a string that represents the synthesis result.
+            </summary>
+            <returns>A string that represents the synthesis result.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResultEventArgs">
+            <summary>
+            Define payload of translation synthesis result events.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResultEventArgs.Result">
+            <summary>
+            Specifies the translation synthesis result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResultEventArgs.SessionId">
+            <summary>
+            Specifies the session identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisResultEventArgs.ToString">
+            <summary>
+            Returns a string that represents the speech recognition result event.
+            </summary>
+            <returns>A string that represents the speech recognition result event.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult">
+            <summary>
+            Defines tranlsation result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult.TranslationStatus">
+            <summary>
+            Specifies status of translation text result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult.Translations">
+            <summary>
+            Presents the translation results. Each item in the dictionary represents translation result in one of target languages, where the key 
+            is the name of the target language, in BCP-47 format, and the value is the translation text in the specified language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult.FailureReason">
+            <summary>
+            Contains failure reason if TextStatus is Error. Otherwise it is empty.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResult.ToString">
+            <summary>
+            Returns a string that represents the speech recognition result.
+            </summary>
+            <returns>A string that represents the speech recognition result.</returns>
+        </member>
+        <member name="T:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResultEventArgs">
+            <summary>
+            Define payload of translation intermediate/final result events.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResultEventArgs.Result">
+            <summary>
+            Specifies the recognition result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResultEventArgs.SessionId">
+            <summary>
+            Specifies the session identifier.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CognitiveServices.Speech.Translation.TranslationTextResultEventArgs.ToString">
+            <summary>
+            Returns a string that represents the speech recognition result event.
+            </summary>
+            <returns>A string that represents the speech recognition result event.</returns>
+        </member>
+    </members>
+</doc>

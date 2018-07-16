@@ -53,6 +53,7 @@
             // 
             // textBox
             // 
+            this.textBox.Font = new System.Drawing.Font("SimHei", 10F);
             this.textBox.Location = new System.Drawing.Point(408, 118);
             this.textBox.Margin = new System.Windows.Forms.Padding(4);
             this.textBox.Multiline = true;
@@ -72,6 +73,7 @@
             this.button.TabIndex = 5;
             this.button.Text = "开始";
             this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_ClickAsync);
             // 
             // picture_Bedroom
             // 
@@ -108,14 +110,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 513);
-            this.Controls.Add(this.textBox_Error);
             this.Controls.Add(this.picture_Kitchen);
             this.Controls.Add(this.picture_Bedroom);
             this.Controls.Add(this.checkBox_Sound);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.button);
+            this.Controls.Add(this.textBox_Error);
             this.Name = "Controller";
             this.Text = "Controller";
+            this.Load += new System.EventHandler(this.Controller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picture_Bedroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Kitchen)).EndInit();
             this.ResumeLayout(false);
