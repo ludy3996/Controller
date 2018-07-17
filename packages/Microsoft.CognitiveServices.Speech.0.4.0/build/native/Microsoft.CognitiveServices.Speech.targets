@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -19,3 +20,26 @@
     <Copy SourceFiles="$(SpeechNativeLibDir)\Microsoft.CognitiveServices.Speech.core.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SpeechNativePlatform>$(Platform)</SpeechNativePlatform>
+  </PropertyGroup>
+  <Import Project="$(MSBuildThisFileDirectory)\..\Microsoft.CognitiveServices.Speech.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SpeechPackageRoot)build\native\include\cxx_api;$(SpeechPackageRoot)build\native\include\c_api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SpeechPackageRoot)build\native\include\cxx_api;$(SpeechPackageRoot)build\native\include\c_api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>$(SpeechNativeLibDir)\Microsoft.CognitiveServices.Speech.core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="SpeechRedistAfterBuild" AfterTargets="AfterBuild" >
+    <Copy SourceFiles="$(SpeechNativeLibDir)\Microsoft.CognitiveServices.Speech.core.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
+>>>>>>> 2dcaa460910257c363b5200d4cfbe6d24698a81c

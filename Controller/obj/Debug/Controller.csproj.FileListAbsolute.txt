@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.exe.config
 C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.exe
 C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.pdb
@@ -8,3 +9,15 @@ C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.csproj.
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.exe
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.pdb
+=======
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.exe.config
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.exe
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\Debug\Controller.pdb
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.csprojAssemblyReference.cache
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.Controller.resources
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.Properties.Resources.resources
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.csproj.GenerateResource.cache
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.exe
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\Debug\Controller.pdb
+>>>>>>> 2dcaa460910257c363b5200d4cfbe6d24698a81c
