@@ -1,10 +1,12 @@
 ﻿using Microsoft.CognitiveServices.Speech;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,7 +72,7 @@ namespace Controller
         {
             MakesureRunInUI(() =>
             {
-                picture_Kitchen.Load("Kitchen_LightOff.jpg");
+                picture_Kitchen.Load("Kitchen_LightOn.jpg");
             });
         }
 
@@ -131,7 +133,7 @@ namespace Controller
             if (!string.IsNullOrEmpty(e.Result.Text))
             {
                 Log("最终结果: " + e.Result.Text);
-                //ProcessSttResult(e.Result.Text);
+                ProcessSttResult(e.Result.Text);
             }
         }
 
@@ -173,6 +175,67 @@ namespace Controller
             }
 
             button.Enabled = true;
+        }
+
+        // 通过GetLuisResult函数处理text转换Intext
+        private async void ProcessSttResult(string text)
+        {
+            // 第二步
+            // 调用语言理解服务取得用户意图
+            string intent = await GetLuisResult(text);
+
+            // 第三步
+            // 按照意图控制灯
+
+            if (!string.IsNullOrEmpty(intent))
+            {
+                if (intent.Equals("Bedroom_On", StringComparison.OrdinalIgnoreCase))
+                {
+                    OpenBedroomLight();
+                }
+                else if (intent.Equals("Kitchen_On", StringComparison.OrdinalIgnoreCase))
+                {
+                    OpenKitchenLight();
+                }
+                else if (intent.Equals("Bedroom_Off", StringComparison.OrdinalIgnoreCase))
+                {
+                    CloseBedroomLight();
+                }
+                else if (intent.Equals("Kitchen_Off", StringComparison.OrdinalIgnoreCase))
+                {
+                    CloseKitchenLight();
+                }
+            }
+
+
+        }
+
+        // 第二步
+        // 调用语言理解服务取得用户意图
+        private async Task<string> GetLuisResult(string text)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // LUIS 终结点地址, 示例: https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/102f6255-0c32-4f36-9c79-fe12fea4d6c4?subscription-key=9004421650254a74876cf3c888b1d11f&verbose=true&timezoneOffset=0&q=
+                // 可在 https://www.luis.ai 中进入app右上角publish中找到
+                string luisEndpoint = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/fda16211-ae4d-4d68-993d-38c0e610f326?subscription-key=09995e6c1ca14d788aed63cac9ef0612&verbose=true&timezoneOffset=480&q=";
+                string luisJson = await httpClient.GetStringAsync(luisEndpoint + text);
+
+                try
+                {
+                    dynamic result = JsonConvert.DeserializeObject<dynamic>(luisJson);
+                    string intent = (string)result.topScoringIntent.intent;
+                    double score = (double)result.topScoringIntent.score;
+                    Log("意图: " + intent + "\r\n得分: " + score + "\r\n");
+
+                    return intent;
+                }
+                catch (Exception ex)
+                {
+                    Log(ex.Message);
+                    return null;
+                }
+            }
         }
     }
 }

@@ -13,3 +13,5 @@ C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.Cogn
 C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.CognitiveServices.Speech.csharp.xml
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csprojAssemblyReference.cache
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csproj.CopyComplete
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Newtonsoft.Json.xml
