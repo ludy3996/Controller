@@ -205,6 +205,26 @@ namespace Controller
                 {
                     CloseKitchenLight();
                 }
+                else if (intent.Equals("All_On", StringComparison.OrdinalIgnoreCase))
+                {
+                    OpenBedroomLight();
+                    OpenKitchenLight();
+                }
+                else if (intent.Equals("All_Off", StringComparison.OrdinalIgnoreCase))
+                {
+                    CloseBedroomLight();
+                    CloseKitchenLight();
+                }
+                else if (intent.Equals("BedroomOff_KitchenOn", StringComparison.OrdinalIgnoreCase))
+                {
+                    CloseBedroomLight();
+                    OpenKitchenLight();
+                }
+                else if (intent.Equals("BedroomOn_KitchenOff", StringComparison.OrdinalIgnoreCase))
+                {
+                    OpenBedroomLight();
+                    CloseKitchenLight();
+                }
             }
 
 
