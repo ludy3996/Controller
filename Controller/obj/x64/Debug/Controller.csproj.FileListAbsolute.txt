@@ -7,3 +7,11 @@ C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csp
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csproj.CoreCompileInputs.cache
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.exe
 C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.pdb
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.CognitiveServices.Speech.core.dll
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.CognitiveServices.Speech.csharp.bindings.dll
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.CognitiveServices.Speech.csharp.dll
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Microsoft.CognitiveServices.Speech.csharp.xml
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csprojAssemblyReference.cache
+C:\Users\victo\Desktop\shares\Controller\Controller\obj\x64\Debug\Controller.csproj.CopyComplete
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\victo\Desktop\shares\Controller\Controller\bin\x64\Debug\Newtonsoft.Json.xml
