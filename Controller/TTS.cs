@@ -365,7 +365,7 @@ namespace TTS
                 // Note: The way to get api key: 
                 // Free: https://www.microsoft.com/cognitive-services/en-us/subscriptions?productId=/products/Bing.Speech.Preview 
                 // Paid: https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/Bing.Speech/pricingtier/S0 
-                Authentication auth = new Authentication("e76119388d8c48aebf21d86c5849c8d7");
+                Authentication auth = new Authentication("b8433c27dde343e0907d8348c300000e");
                 try
                 {
                     accessToken = auth.GetAccessToken();
